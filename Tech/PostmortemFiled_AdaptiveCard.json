@@ -1,0 +1,42 @@
+{
+  "type": "AdaptiveCard",
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Postmortem Filed",
+      "weight": "Bolder",
+      "size": "Medium",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "Incident Postmortem Copilot",
+      "isSubtle": true,
+      "spacing": "None",
+      "wrap": true
+    },
+    {
+      "type": "FactSet",
+      "facts": [
+        {
+          "title": "Incident ID:",
+          "value": "{{IncidentID}}"
+        },
+        {
+          "title": "Severity:",
+          "value": "{{Severity}}"
+        },
+        {
+          "title": "Owning Team:",
+          "value": "{{OwningTeam}}"
+        },
+        {
+          "title": "Work Item:",
+          "value": "{{WorkItemURL}}"
+        }
+      ]
+    }
+  ]
+}

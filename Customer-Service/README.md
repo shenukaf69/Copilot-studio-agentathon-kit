@@ -4,6 +4,8 @@ Lets agents triage and escalate cases in conversation while giving managers real
 
 **Guide:** `Customer_Service_Insights_Copilot_Full_Build_Guide.pdf`
 **Sample data:** `Customer_Service_Cases_Data.xlsx`
+**Also included:**
+- `CaseEscalated_AdaptiveCard.json` — Teams adaptive card with {{Placeholder}} tokens
 
 ## Workloads used
 

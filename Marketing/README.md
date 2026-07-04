@@ -4,6 +4,9 @@ Answers campaign performance/ROI questions and captures structured campaign brie
 
 **Guide:** `Marketing_Campaigns_Copilot_Full_Build_Guide.pdf`
 **Sample data:** `Marketing_Campaigns_Data.xlsx`
+**Also included:**
+- `CampaignBriefs_SharePointList_Template.xlsx` — SharePoint list import template (optional reporting record)
+- `CampaignBriefFiled_AdaptiveCard.json` — Teams adaptive card with {{Placeholder}} tokens
 
 ## Workloads used
 
@@ -31,7 +34,7 @@ Answers campaign performance/ROI questions and captures structured campaign brie
 - SharePoint
 - Microsoft Teams
 
-> **Note:** Create the Planner plan (with a bucket per region) before Step 6 — the flow needs somewhere to file the task.
+> **Note:** Create the Planner plan (with a bucket per region) before Step 6 — the flow needs somewhere to file the task. The optional SharePoint reporting record has a ready-made import template.
 
 ---
 

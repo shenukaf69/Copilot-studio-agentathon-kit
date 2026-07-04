@@ -4,6 +4,9 @@ Answers budget/variance questions and captures structured variance explanations 
 
 **Guide:** `Finance_Budget_Copilot_Full_Build_Guide.pdf`
 **Sample data:** `Finance_Budget_Data.xlsx`
+**Also included:**
+- `VarianceNotes_SharePointList_Template.xlsx` — SharePoint list import template
+- `VarianceNoteSubmitted_AdaptiveCard.json` — Teams adaptive card with {{Placeholder}} tokens
 
 ## Workloads used
 
@@ -28,7 +31,7 @@ Answers budget/variance questions and captures structured variance explanations 
 - SharePoint
 - Microsoft Teams
 
-> **Note:** You need to create the "Variance Notes" SharePoint list before Step 6 — column layout is in the guide.
+> **Note:** Import the SharePoint list template via New → List → From Excel — no need to build the list from scratch.
 
 ---
 

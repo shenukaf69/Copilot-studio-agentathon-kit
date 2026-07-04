@@ -4,6 +4,9 @@ Answers journal/variance/control-exception questions with citations, and lets au
 
 **Guide:** `Audit_Reporting_QA_Copilot_Full_Build_Guide.pdf`
 **Sample data:** `Finance_Audit_Data.xlsx`
+**Also included:**
+- `AuditFindings_SharePointList_Template.xlsx` — SharePoint list import template
+- `AuditFindingRaised_AdaptiveCard.json` — Teams adaptive card with {{Placeholder}} tokens
 
 ## Workloads used
 
@@ -28,7 +31,7 @@ Answers journal/variance/control-exception questions with citations, and lets au
 - SharePoint
 - Microsoft Teams
 
-> **Note:** Create the "Audit Findings" SharePoint list before Step 6 — column layout is in the guide.
+> **Note:** Import the SharePoint list template via New → List → From Excel — no need to build the list from scratch.
 
 ---
 

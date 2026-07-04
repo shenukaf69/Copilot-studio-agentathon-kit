@@ -1,0 +1,42 @@
+{
+  "type": "AdaptiveCard",
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Case Escalated",
+      "weight": "Bolder",
+      "size": "Medium",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "Customer Service Insights Copilot",
+      "isSubtle": true,
+      "spacing": "None",
+      "wrap": true
+    },
+    {
+      "type": "FactSet",
+      "facts": [
+        {
+          "title": "Case ID:",
+          "value": "{{CaseID}}"
+        },
+        {
+          "title": "Priority:",
+          "value": "{{SuggestedPriority}}"
+        },
+        {
+          "title": "Reason:",
+          "value": "{{EscalationReason}}"
+        },
+        {
+          "title": "Context:",
+          "value": "{{Context}}"
+        }
+      ]
+    }
+  ]
+}

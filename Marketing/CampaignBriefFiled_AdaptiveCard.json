@@ -1,0 +1,46 @@
+{
+  "type": "AdaptiveCard",
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "New Campaign Brief Filed",
+      "weight": "Bolder",
+      "size": "Medium",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "Marketing Campaigns Copilot",
+      "isSubtle": true,
+      "spacing": "None",
+      "wrap": true
+    },
+    {
+      "type": "FactSet",
+      "facts": [
+        {
+          "title": "Objective:",
+          "value": "{{Objective}}"
+        },
+        {
+          "title": "Region:",
+          "value": "{{Region}}"
+        },
+        {
+          "title": "Launch Window:",
+          "value": "{{LaunchWindowStart}} to {{LaunchWindowEnd}}"
+        },
+        {
+          "title": "Budget:",
+          "value": "{{Budget}}"
+        },
+        {
+          "title": "Planner Task:",
+          "value": "{{PlannerTaskURL}}"
+        }
+      ]
+    }
+  ]
+}

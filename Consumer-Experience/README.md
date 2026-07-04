@@ -4,6 +4,9 @@ Gives store managers today's numbers vs target and drafts/sends the daily stand-
 
 **Guide:** `Store_Ops_Daily_Copilot_Full_Build_Guide.pdf`
 **Sample data:** `Consumer_StoreOps_Data.xlsx`
+**Also included:**
+- `StoreOpsArchive_SharePointList_Template.xlsx` — SharePoint list import template
+- `StandupPosted_AdaptiveCard.json` — Teams adaptive card with {{Placeholder}} tokens
 
 ## Workloads used
 
@@ -28,7 +31,7 @@ Gives store managers today's numbers vs target and drafts/sends the daily stand-
 - Microsoft Teams
 - SharePoint
 
-> **Note:** Create the "Store Ops Archive" SharePoint list before Step 6 — column layout is in the guide.
+> **Note:** Import the SharePoint archive list template via New → List → From Excel — no need to build the list from scratch.
 
 ---
 

@@ -4,6 +4,8 @@ Drafts blameless engineering postmortems and files them as Azure DevOps work ite
 
 **Guide:** `Incident_Postmortem_Copilot_Full_Build_Guide.pdf`
 **Sample data:** `Tech_Incidents_Data.xlsx`
+**Also included:**
+- `PostmortemFiled_AdaptiveCard.json` — Teams adaptive card with {{Placeholder}} tokens
 
 ## Workloads used
 

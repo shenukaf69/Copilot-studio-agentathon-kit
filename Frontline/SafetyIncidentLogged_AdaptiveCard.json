@@ -1,0 +1,46 @@
+{
+  "type": "AdaptiveCard",
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Safety Incident Logged",
+      "weight": "Bolder",
+      "size": "Medium",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "Frontline Shift Handover Copilot",
+      "isSubtle": true,
+      "spacing": "None",
+      "wrap": true
+    },
+    {
+      "type": "FactSet",
+      "facts": [
+        {
+          "title": "Shift ID:",
+          "value": "{{ShiftID}}"
+        },
+        {
+          "title": "Incident Type:",
+          "value": "{{IncidentType}}"
+        },
+        {
+          "title": "Location:",
+          "value": "{{Location}}"
+        },
+        {
+          "title": "Description:",
+          "value": "{{Description}}"
+        },
+        {
+          "title": "Action Taken:",
+          "value": "{{ActionTaken}}"
+        }
+      ]
+    }
+  ]
+}

@@ -4,6 +4,8 @@ Triages contract renewal exposure and kicks off e-signature envelopes in convers
 
 **Guide:** `Legal_Contract_Review_Copilot_Full_Build_Guide.pdf`
 **Sample data:** `Legal_Contracts_Data.xlsx`
+**Also included:**
+- `ContractSentForSignature_AdaptiveCard.json` — Teams adaptive card with {{Placeholder}} tokens
 
 ## Workloads used
 

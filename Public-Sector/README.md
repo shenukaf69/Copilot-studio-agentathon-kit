@@ -4,6 +4,9 @@ Triages new citizen cases by category/priority/SLA and drafts plain-language ack
 
 **Guide:** `Public_Sector_Case_Triage_Copilot_Full_Build_Guide.pdf`
 **Sample data:** `PublicSector_Cases_Data.xlsx`
+**Also included:**
+- `AcknowledgementLetter_Template.docx` — Word template with content controls
+- `AcknowledgementLetterReview_AdaptiveCard.json` — Teams adaptive card with Approve/Hold buttons
 
 ## Workloads used
 
@@ -30,7 +33,7 @@ Triages new citizen cases by category/priority/SLA and drafts plain-language ack
 - SharePoint
 - Microsoft Teams
 
-> **Note:** You need to author the .docx letter template yourself first, with named content controls (CitizenRef, Category, SLA, OfficerName, PersonalisationNote) — see Step 6a in the guide.
+> **Note:** The .docx letter template is provided ready-made with real Word content controls (CitizenRef, Category, SLA, OfficerName, PersonalisationNote) — just upload it to SharePoint, no authoring needed.
 
 ---
 

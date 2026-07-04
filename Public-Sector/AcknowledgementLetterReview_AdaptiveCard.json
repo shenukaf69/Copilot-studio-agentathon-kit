@@ -1,0 +1,60 @@
+{
+  "type": "AdaptiveCard",
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Acknowledgement Letter Ready for Review",
+      "weight": "Bolder",
+      "size": "Medium",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "Public Sector Case Triage Copilot",
+      "isSubtle": true,
+      "spacing": "None",
+      "wrap": true
+    },
+    {
+      "type": "FactSet",
+      "facts": [
+        {
+          "title": "Citizen Ref:",
+          "value": "{{CitizenRef}}"
+        },
+        {
+          "title": "Category:",
+          "value": "{{Category}}"
+        },
+        {
+          "title": "SLA (days):",
+          "value": "{{SLA}}"
+        },
+        {
+          "title": "Officer:",
+          "value": "{{OfficerName}}"
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Submit",
+      "title": "Approve & Send",
+      "data": {
+        "decision": "Approved",
+        "citizenRef": "{{CitizenRef}}"
+      }
+    },
+    {
+      "type": "Action.Submit",
+      "title": "Hold for Edits",
+      "data": {
+        "decision": "Hold",
+        "citizenRef": "{{CitizenRef}}"
+      }
+    }
+  ]
+}

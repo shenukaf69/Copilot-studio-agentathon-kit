@@ -4,6 +4,8 @@ Turns free-text intake notes into structured pre-consult summaries and files cli
 
 **Guide:** `Patient_Intake_Summariser_Copilot_Full_Build_Guide.pdf`
 **Sample data:** `Healthcare_Intake_Data.xlsx`
+**Also included:**
+- `ClinicianReviewNeeded_AdaptiveCard.json` — Teams adaptive card with {{Placeholder}} tokens
 
 ## Workloads used
 

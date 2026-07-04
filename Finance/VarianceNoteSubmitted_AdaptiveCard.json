@@ -1,0 +1,46 @@
+{
+  "type": "AdaptiveCard",
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Variance Note Submitted",
+      "weight": "Bolder",
+      "size": "Medium",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "Finance & Budget Copilot",
+      "isSubtle": true,
+      "spacing": "None",
+      "wrap": true
+    },
+    {
+      "type": "FactSet",
+      "facts": [
+        {
+          "title": "Cost Centre:",
+          "value": "{{CostCentreCode}}"
+        },
+        {
+          "title": "Quarter:",
+          "value": "{{Quarter}}"
+        },
+        {
+          "title": "Driver:",
+          "value": "{{Driver}}"
+        },
+        {
+          "title": "Mitigation Plan:",
+          "value": "{{MitigationPlan}}"
+        },
+        {
+          "title": "Type:",
+          "value": "{{Type}}"
+        }
+      ]
+    }
+  ]
+}

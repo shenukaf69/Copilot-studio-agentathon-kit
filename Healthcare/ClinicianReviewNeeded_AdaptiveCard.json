@@ -1,0 +1,42 @@
+{
+  "type": "AdaptiveCard",
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Clinician Review Needed",
+      "weight": "Bolder",
+      "size": "Medium",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "Patient Intake Summariser Copilot",
+      "isSubtle": true,
+      "spacing": "None",
+      "wrap": true
+    },
+    {
+      "type": "FactSet",
+      "facts": [
+        {
+          "title": "Patient ID:",
+          "value": "{{PatientID}}"
+        },
+        {
+          "title": "Triage Outcome:",
+          "value": "{{TriageOutcome}}"
+        },
+        {
+          "title": "Red Flag Context:",
+          "value": "{{RedFlagContext}}"
+        },
+        {
+          "title": "Task:",
+          "value": "{{TaskTitle}}"
+        }
+      ]
+    }
+  ]
+}

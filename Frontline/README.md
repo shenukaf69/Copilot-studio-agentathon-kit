@@ -4,6 +4,9 @@ Captures shift handovers and logs safety incidents in conversation, built for ha
 
 **Guide:** `Frontline_Shift_Handover_Copilot_Full_Build_Guide.pdf`
 **Sample data:** `Frontline_Shifts_Data.xlsx`
+**Also included:**
+- `SafetyIncidents_DataverseImport_Template.xlsx` — Dataverse table import template
+- `SafetyIncidentLogged_AdaptiveCard.json` — Teams adaptive card with {{Placeholder}} tokens
 
 ## Workloads used
 
@@ -28,7 +31,7 @@ Captures shift handovers and logs safety incidents in conversation, built for ha
 - Dataverse
 - Microsoft Teams
 
-> **Note:** This is the only scenario requiring a brand-new Dataverse table (not just a SharePoint list) — create it in the Power Apps maker portal before Step 6.
+> **Note:** This is the only scenario requiring a brand-new Dataverse table (not just a SharePoint list). Use the provided workbook with Power Apps' Tables → New table → Import from Excel to create it in one step.
 
 ---
 
