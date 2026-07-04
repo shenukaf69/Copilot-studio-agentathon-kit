@@ -1,0 +1,434 @@
+<title>Copilot Studio Agent-a-thon — Facilitator Run-of-Show</title>
+<style>
+
+@font-face {
+  font-family: "UI Sans";
+  src: local("Segoe UI"), local("Segoe UI Variable"), local("Helvetica Neue");
+}
+
+:root{
+  --ink: #12151c;
+  --ink-soft: #464c58;
+  --paper: #f2f4f5;
+  --paper-raised: #ffffff;
+  --line: #d7dbde;
+  --line-soft: #e6e9eb;
+  --accent: #b5541f;
+  --accent-ink: #ffffff;
+  --function: #1f6f66;
+  --function-bg: #e2f0ed;
+  --industry: #2c4c7c;
+  --industry-bg: #e5eaf3;
+  --warn: #9a4b12;
+  --warn-bg: #f7e6d6;
+  --crit: #8a2222;
+  --crit-bg: #f6e0e0;
+  --focus: #0d6efd;
+  font-synthesis: none;
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --ink: #eceef1;
+    --ink-soft: #a8afba;
+    --paper: #14171c;
+    --paper-raised: #1b1f26;
+    --line: #2c313a;
+    --line-soft: #23272f;
+    --accent: #e2894f;
+    --accent-ink: #14171c;
+    --function: #6fcabb;
+    --function-bg: #17302c;
+    --industry: #8fb0e6;
+    --industry-bg: #1c2940;
+    --warn: #e8a86a;
+    --warn-bg: #3a2a16;
+    --crit: #e58080;
+    --crit-bg: #3a1e1e;
+    --focus: #6fa8ff;
+  }
+}
+:root[data-theme="dark"]{
+  --ink: #eceef1; --ink-soft: #a8afba; --paper: #14171c; --paper-raised: #1b1f26;
+  --line: #2c313a; --line-soft: #23272f; --accent: #e2894f; --accent-ink: #14171c;
+  --function: #6fcabb; --function-bg: #17302c; --industry: #8fb0e6; --industry-bg: #1c2940;
+  --warn: #e8a86a; --warn-bg: #3a2a16; --crit: #e58080; --crit-bg: #3a1e1e; --focus: #6fa8ff;
+}
+:root[data-theme="light"]{
+  --ink: #12151c; --ink-soft: #464c58; --paper: #f2f4f5; --paper-raised: #ffffff;
+  --line: #d7dbde; --line-soft: #e6e9eb; --accent: #b5541f; --accent-ink: #ffffff;
+  --function: #1f6f66; --function-bg: #e2f0ed; --industry: #2c4c7c; --industry-bg: #e5eaf3;
+  --warn: #9a4b12; --warn-bg: #f7e6d6; --crit: #8a2222; --crit-bg: #f6e0e0; --focus: #0d6efd;
+}
+
+*{ box-sizing: border-box; }
+html,body{ margin:0; padding:0; }
+body{
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "UI Sans", "Segoe UI", "Segoe UI Variable", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap{ max-width: 860px; margin: 0 auto; padding: 3.5rem 1.5rem 6rem; }
+
+::selection{ background: var(--accent); color: var(--accent-ink); }
+
+:focus-visible{ outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 2px; }
+
+.eyebrow{
+  font-family: ui-monospace, "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+h1{
+  font-family: Rockwell, "Roboto Slab", Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  font-size: clamp(1.9rem, 4vw, 2.65rem);
+  letter-spacing: -0.01em;
+  line-height: 1.08;
+  margin: 0.4rem 0 0.6rem;
+  text-wrap: balance;
+  color: var(--ink);
+}
+
+.dek{
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  max-width: 62ch;
+  margin: 0;
+}
+
+header.masthead{
+  padding-bottom: 1.8rem;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 2.2rem;
+}
+
+.meta-row{
+  display:flex; flex-wrap:wrap; gap: 1.4rem;
+  margin-top: 1.4rem;
+  font-family: ui-monospace, "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+.meta-row b{ color: var(--ink); font-weight: 600; }
+
+section{ margin: 2.6rem 0; }
+
+h2{
+  font-family: Rockwell, "Roboto Slab", Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--line);
+  text-wrap: balance;
+}
+
+h3{
+  font-size: 1.02rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+p{ margin: 0.6rem 0; }
+
+/* ---- timeline strip ---- */
+.timeline{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.tblock{
+  background: var(--paper-raised);
+  padding: 0.85rem 0.9rem;
+  min-width: 0;
+}
+.tblock .t{
+  font-family: ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.72rem;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.tblock .l{
+  font-size: 0.83rem;
+  margin-top: 0.2rem;
+  color: var(--ink);
+  font-weight: 600;
+}
+.tblock .s{
+  font-size: 0.76rem;
+  color: var(--ink-soft);
+  margin-top: 0.15rem;
+}
+
+/* ---- step list ---- */
+.steps{ display:flex; flex-direction:column; gap: 0; }
+.step{
+  display:grid;
+  grid-template-columns: 2.6rem 1fr;
+  gap: 0.9rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.step:last-child{ border-bottom: none; }
+.step .n{
+  font-family: ui-monospace, monospace;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.step h4{
+  margin: 0 0 0.25rem;
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+.step p{ margin: 0; color: var(--ink-soft); font-size: 0.92rem; }
+.part-tag{
+  display:inline-block;
+  font-family: ui-monospace, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 1.6rem 0 0.4rem;
+}
+
+/* ---- table ---- */
+.tablewrap{ overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; }
+table{ border-collapse: collapse; width: 100%; min-width: 780px; font-size: 0.86rem; }
+thead th{
+  text-align: left;
+  font-family: ui-monospace, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  background: var(--line-soft);
+  padding: 0.7rem 0.8rem;
+  position: sticky; top:0;
+}
+tbody td{
+  padding: 0.75rem 0.8rem;
+  border-top: 1px solid var(--line-soft);
+  vertical-align: top;
+}
+tbody tr:hover td{ background: var(--line-soft); }
+td .agent{ font-weight: 700; }
+td .file{
+  font-family: ui-monospace, monospace;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+.pill{
+  display:inline-block;
+  font-family: ui-monospace, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0.18rem 0.5rem;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+.pill.function{ background: var(--function-bg); color: var(--function); }
+.pill.industry{ background: var(--industry-bg); color: var(--industry); }
+.pill.warn{ background: var(--warn-bg); color: var(--warn); }
+.pill.crit{ background: var(--crit-bg); color: var(--crit); }
+.pill.ok{ background: var(--function-bg); color: var(--function); }
+
+/* ---- callouts ---- */
+.callout{
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  background: var(--paper-raised);
+  border-radius: 6px;
+  padding: 1rem 1.1rem;
+  margin: 1rem 0;
+}
+.callout.crit{ border-left-color: var(--crit); }
+.callout.warn{ border-left-color: var(--warn); }
+.callout h4{
+  margin: 0 0 0.35rem;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-family: ui-monospace, monospace;
+  color: var(--ink);
+}
+.callout p{ margin:0; font-size: 0.92rem; color: var(--ink-soft); }
+
+.checklist{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0.55rem; }
+.checklist li{
+  display:flex; gap:0.65rem; align-items:flex-start;
+  font-size: 0.93rem;
+}
+.checklist li::before{
+  content:"";
+  flex: 0 0 auto;
+  width: 0.9rem; height: 0.9rem;
+  margin-top: 0.2rem;
+  border: 1.5px solid var(--ink-soft);
+  border-radius: 3px;
+}
+
+.qgrid{ display:grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 620px){ .qgrid{ grid-template-columns: 1fr; } }
+.qcard{
+  border:1px solid var(--line); border-radius:8px; padding: 0.9rem 1rem; background: var(--paper-raised);
+}
+.qcard h4{ margin:0 0 0.4rem; font-size:0.85rem; }
+.qcard p{ margin:0; font-size:0.88rem; color: var(--ink-soft); }
+
+footer{
+  margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--line);
+  font-size: 0.8rem; color: var(--ink-soft);
+}
+
+@media (prefers-reduced-motion: no-preference){
+  tbody tr td{ transition: background-color 120ms ease; }
+}
+</style>
+
+<div class="wrap">
+
+<header class="masthead">
+  <div class="eyebrow">Facilitator Run-of-Show · 90 Minutes</div>
+  <h1>Copilot Studio Agent-a-thon</h1>
+  <p class="dek">One live-build cadence, ten steps, teams pick their own scenario. Mirrors the exact build-along structure already in the repo — you run the clock, they run the tenant.</p>
+  <div class="meta-row">
+    <span><b>Format</b> — single-track, live demo + mirror</span>
+    <span><b>Scenarios ready</b> — 12 of 14</span>
+    <span><b>Tier</b> — 2 · Copilot Studio</span>
+  </div>
+</header>
+
+<section>
+  <h2>Session at a glance</h2>
+  <div class="timeline">
+    <div class="tblock"><div class="t">0–5</div><div class="l">Kickoff</div><div class="s">Pick scenario, confirm access</div></div>
+    <div class="tblock"><div class="t">5–15</div><div class="l">Steps 1–2</div><div class="s">Create agent, set orchestration</div></div>
+    <div class="tblock"><div class="t">15–25</div><div class="l">Step 3</div><div class="s">Upload knowledge file</div></div>
+    <div class="tblock"><div class="t">25–40</div><div class="l">Steps 4–5</div><div class="s">Instructions + custom topic</div></div>
+    <div class="tblock"><div class="t">40–55</div><div class="l">Step 6</div><div class="s">Add the tool/connector</div></div>
+    <div class="tblock"><div class="t">55–60</div><div class="l">Step 7</div><div class="s">Settings: auth, security, DLP</div></div>
+    <div class="tblock"><div class="t">60–75</div><div class="l">Steps 8–9</div><div class="s">Evaluation set + test pane</div></div>
+    <div class="tblock"><div class="t">75–85</div><div class="l">Step 10</div><div class="s">Publish + try-live queries</div></div>
+    <div class="tblock"><div class="t">85–90</div><div class="l">Lightning demos</div><div class="s">30 sec per team, no slides</div></div>
+  </div>
+</section>
+
+<section>
+  <h2>Before the room opens</h2>
+  <ul class="checklist">
+    <li>Every attendee has a Copilot Studio licence or trial, and maker permission on the target environment</li>
+    <li>Each team has downloaded the <code>.xlsx</code> for their chosen scenario (see table below) before step 3 — don't burn live-build minutes on file hunting</li>
+    <li>Dataverse / Dynamics 365 / Power Automate connectors pre-authorized in the environment — first-time connector consent mid-build eats 5+ minutes per team</li>
+    <li>Teams admin is aware a Teams-channel publish request may land during or after the session — approval will not complete inside the 90 minutes</li>
+    <li>Decide up front: are teams publishing for real, or is "green in the Test pane" the finish line? Say this in the kickoff so nobody stalls on step 10</li>
+  </ul>
+</section>
+
+<section>
+  <h2>The 10-step build (identical for every scenario)</h2>
+  <p style="color:var(--ink-soft); font-size:0.92rem;">This is the exact sequence used across all 12 scenario PDFs — only the agent name, data file, topic, and tool change. Demo each step live on your own scenario; teams mirror it on theirs in the same window.</p>
+
+  <div class="part-tag">Part 1 — Set up</div>
+  <div class="steps">
+    <div class="step"><div class="n">01</div><div><h4>Create the agent</h4><p>copilotstudio.microsoft.com → Create → New agent. Set name, description, solution/environment, icon.</p></div></div>
+    <div class="step"><div class="n">02</div><div><h4>Choose orchestration mode</h4><p>Generative (AI-led, recommended for this session) vs Classic (trigger-led, for regulated flows). Settings → Generative AI.</p></div></div>
+    <div class="step"><div class="n">03</div><div><h4>Add knowledge</h4><p>Knowledge tab → Add knowledge → File → upload the scenario's sample data workbook.</p></div></div>
+  </div>
+
+  <div class="part-tag">Part 2 — Behavior</div>
+  <div class="steps">
+    <div class="step"><div class="n">04</div><div><h4>Add agent instructions</h4><p>Overview → Instructions. Name the audiences, set the source-of-truth rule, the tool-triggering rule, the data-boundary rule.</p></div></div>
+    <div class="step"><div class="n">05</div><div><h4>Add a custom topic</h4><p>Topics → Add a topic → Create from description. Name, trigger phrases, and a numbered conversation flow: identify → collect → look up → call tool → confirm.</p></div></div>
+  </div>
+
+  <div class="part-tag">Part 3 — Action &amp; governance</div>
+  <div class="steps">
+    <div class="step"><div class="n">06</div><div><h4>Add a tool</h4><p>Prebuilt connector, Power Automate flow, custom HTTP, or MCP server. Name it, describe it, list its inputs and its outcome.</p></div></div>
+    <div class="step"><div class="n">07</div><div><h4>Configure settings</h4><p>General, Generative AI (moderation: start Medium), Authentication ("Authenticate with Microsoft"), Security (DLP, channels).</p></div></div>
+  </div>
+
+  <div class="part-tag">Part 4 — Quality &amp; ship</div>
+  <div class="steps">
+    <div class="step"><div class="n">08</div><div><h4>Evaluate</h4><p>Analytics → Evaluations → New evaluation. Pair prompts with expected outcomes; score Groundedness, Relevance, Accuracy.</p></div></div>
+    <div class="step"><div class="n">09</div><div><h4>Test in the Test pane</h4><p>Activity map shows which topic/tool/knowledge fired, what it collected, and citations back to the source rows.</p></div></div>
+    <div class="step"><div class="n">10</div><div><h4>Publish</h4><p>Teams, Microsoft 365 Copilot, custom web embed, or Slack / Facebook / Telephony. Teams &amp; M365 Copilot need tenant admin approval first.</p></div></div>
+  </div>
+</section>
+
+<section>
+  <h2>Scenario picker — hand this to teams</h2>
+  <p style="color:var(--ink-soft); font-size:0.92rem;">Each row is one ready-to-build scenario: its data file, the custom topic to author, and the tool that gives it a real action. Teams should pick one before the clock starts on step 1.</p>
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th>Track</th><th>Scenario</th><th>Data file</th><th>Custom topic</th><th>Tool</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="pill function">Function</span></td><td><span class="agent">Sales Pipeline Copilot</span></td><td class="file">Sales_Pipeline_Data.xlsx</td><td>Update Deal Stage</td><td>Dataverse — Update Opportunity</td></tr>
+        <tr><td><span class="pill function">Function</span></td><td><span class="agent">Customer Service Insights Copilot</span></td><td class="file">Customer_Service_Cases_Data.xlsx</td><td>Escalate Case</td><td>Dynamics 365 — Escalate Case</td></tr>
+        <tr><td><span class="pill function">Function</span></td><td><span class="agent">Finance &amp; Budget Copilot</span></td><td class="file">Finance_Budget_Data.xlsx</td><td>Submit Variance Explanation</td><td>Power Automate — Submit Variance Note</td></tr>
+        <tr><td><span class="pill function">Function</span></td><td><span class="agent">HR People Operations Copilot</span></td><td class="file">HR_People_Operations_Data.xlsx</td><td>Request Annual Leave</td><td>Power Automate — Submit Leave Request</td></tr>
+        <tr><td><span class="pill function">Function</span></td><td><span class="agent">Marketing Campaigns Copilot</span></td><td class="file">Marketing_Campaigns_Data.xlsx</td><td>Request a Campaign Brief</td><td>Power Automate — Create Campaign Brief</td></tr>
+        <tr><td><span class="pill industry">Industry</span></td><td><span class="agent">Store Ops Daily Copilot</span></td><td class="file">Consumer_StoreOps_Data.xlsx</td><td>Draft Today's Store Stand-up</td><td>Teams — Send Stand-up Note</td></tr>
+        <tr><td><span class="pill industry">Industry</span></td><td><span class="agent">Audit &amp; Reporting Q&amp;A Copilot</span></td><td class="file">Finance_Audit_Data.xlsx</td><td>Investigate Control Exception</td><td>Power Automate — Flag Journal for Audit Review</td></tr>
+        <tr><td><span class="pill industry">Industry</span></td><td><span class="agent">Frontline Shift Handover Copilot</span></td><td class="file">Frontline_Shifts_Data.xlsx</td><td>Write Shift Handover Note</td><td>Power Automate — Log Safety Incident</td></tr>
+        <tr><td><span class="pill industry">Industry</span></td><td><span class="agent">Patient Intake Summariser Copilot</span></td><td class="file">Healthcare_Intake_Data.xlsx</td><td>Summarise Patient Intake</td><td>Planner — Create Clinician Task</td></tr>
+        <tr><td><span class="pill industry">Industry</span></td><td><span class="agent">Legal Contract Review Copilot</span></td><td class="file">Legal_Contracts_Data.xlsx</td><td>Triage Renewal Exposure</td><td>Power Automate — Send to E-Signature</td></tr>
+        <tr><td><span class="pill industry">Industry</span></td><td><span class="agent">Public Sector Case Triage Copilot</span></td><td class="file">PublicSector_Cases_Data.xlsx</td><td>Triage New Case</td><td>Word — Draft Acknowledgement Letter</td></tr>
+        <tr><td><span class="pill industry">Industry</span></td><td><span class="agent">Incident Postmortem Copilot</span></td><td class="file">Tech_Incidents_Data.xlsx</td><td>Draft Incident Postmortem</td><td>Azure DevOps — File Work Item</td></tr>
+        <tr><td><span class="pill function">Function</span></td><td><span class="agent">IT Helpdesk Assistant</span> <span class="pill warn">no knowledge step</span></td><td class="file">IT_Service_Desk_Data.xlsx</td><td colspan="2">Different template — 7 steps, skips Knowledge entirely. Offer as an advanced/bonus track only, or add step 3 yourself before handing it out.</td></tr>
+        <tr><td><span class="pill industry">Industry</span></td><td><span class="agent">— Insurance —</span> <span class="pill crit">no content</span></td><td colspan="3">Folder is an empty placeholder. Don't offer this one — nothing to build from.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Try these live (say this at minute 75)</h2>
+  <div class="qgrid">
+    <div class="qcard"><h4>Analytical prompt</h4><p>"Show me [the scenario's key metric] by [its main grouping], highest first." — proves knowledge grounding and math-over-rows.</p></div>
+    <div class="qcard"><h4>Risk / filter prompt</h4><p>"Which [records] are [overdue / escalated / breaching] right now?" — proves the agent reasons over dates and status fields.</p></div>
+    <div class="qcard"><h4>Governed action</h4><p>The scenario's own topic trigger, e.g. "Escalate case CS4007" or "Move Cobalt Insurance to Negotiate" — proves the tool call fires end-to-end.</p></div>
+    <div class="qcard"><h4>Audit check</h4><p>"List the [actions] I triggered this session" — proves the action left a real trail, not just a chat reply.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Facilitator pitfalls</h2>
+  <div class="callout">
+    <h4>Orchestration mode debate eats step 2</h4>
+    <p>Don't let teams deliberate. State up front: "everyone uses Generative Orchestration today" — Classic is worth a one-line mention, not a detour.</p>
+  </div>
+  <div class="callout warn">
+    <h4>First-time connector consent</h4>
+    <p>Dataverse / D365 / Planner / Azure DevOps connectors ask for account consent the first time a maker touches them. Pre-authorize in the environment before the session, or budget 5 minutes at step 6.</p>
+  </div>
+  <div class="callout crit">
+    <h4>Publish ≠ finish line</h4>
+    <p>Teams and M365 Copilot channels need tenant admin approval that will not land in 90 minutes. Set the expectation at kickoff: the Test pane, not a live Teams channel, is what gets demoed at minute 90.</p>
+  </div>
+</section>
+
+<footer>
+  Built from the 12 working Copilot_Studio/Scenario build-alongs in this repo (6 Function, 6 Industry). IT and Insurance are flagged, not included in the default rotation.
+</footer>
+
+</div>

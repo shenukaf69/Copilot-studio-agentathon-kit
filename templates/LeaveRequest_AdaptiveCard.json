@@ -1,0 +1,44 @@
+{
+  "type": "AdaptiveCard",
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "New Leave Request",
+      "weight": "Bolder",
+      "size": "Medium",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "Submitted via HR People Operations Copilot",
+      "isSubtle": true,
+      "spacing": "None",
+      "wrap": true
+    },
+    {
+      "type": "FactSet",
+      "facts": [
+        { "title": "Employee:", "value": "{{EmployeeName}}" },
+        { "title": "Leave type:", "value": "{{LeaveType}}" },
+        { "title": "Start date:", "value": "{{StartDate}}" },
+        { "title": "End date:", "value": "{{EndDate}}" },
+        { "title": "Note:", "value": "{{Note}}" },
+        { "title": "Submission ID:", "value": "{{SubmissionID}}" }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Submit",
+      "title": "Approve",
+      "data": { "decision": "Approved", "submissionId": "{{SubmissionID}}" }
+    },
+    {
+      "type": "Action.Submit",
+      "title": "Reject",
+      "data": { "decision": "Rejected", "submissionId": "{{SubmissionID}}" }
+    }
+  ]
+}
